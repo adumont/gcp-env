@@ -18,8 +18,22 @@ gcloud compute instances create $INSTANCE_NAME \
 
 # gcloud compute instances list
 
+IP=$( gcloud compute instances list --filter="$INSTANCE_NAME" | grep -v PREEMPTIBLE | awk '{ print $6 }' )
+
+echo -n "Waiting for ssh port to be up"
+until nc -w 1 -z ${IP} 22
+do
+   echo -n "."; sleep 5
+done
+echo
+
+echo "Opening tunnel for Jupyter Notebook. Use Web Preview to connect. "
+
+gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -N -L 8080:localhost:8080 &
+
 echo
 echo "CONNECT: gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -L 8080:localhost:8080"
 echo
 echo "DELETE : gcloud compute instances delete $INSTANCE_NAME --zone=$ZONE --quiet"
 echo
+
