@@ -9,5 +9,5 @@ su jupyter -c "cd ; git clone https://github.com/the-deep-learners/TensorFlow-Li
 # DeepSchool.io repo
 su jupyter -c "cd ; git clone https://github.com/sachinruk/deepschool.io.git"
 
-# Machine Learning and Deep Learning in Python using Scikit-Learn, Keras and TensorFlow 2 by Aurélien Geron, O'Reilly
+# Machine Learning and Deep Learning in Python using Scikit-Learn, Keras and TensorFlow 2 by Aurelien Geron, O'Reilly
 su jupyter -c "cd ; git clone https://github.com/ageron/handson-ml2.git"
