@@ -1,20 +1,24 @@
-. ./env.sh
+PROFILE=${1:-fastai}
 
-# budget: 'type=nvidia-tesla-k80,count=1'
-gcloud compute instances create $INSTANCE_NAME \
-        --verbosity=info \
-        --zone=$ZONE \
-        --image-family=$IMAGE_FAMILY \
-        --image-project=deeplearning-platform-release \
+[ -e profiles/${PROFILE}.conf ] || exit 1
+
+. profiles/${PROFILE}.conf
+
+INSTANCE_NAME=${INSTANCE_NAME:=my-instance}
+ZONE=${ZONE:=us-west1-b}
+
+gcloud compute instances create ${INSTANCE_NAME} \
+        --verbosity=${VERBOSITY:=info} \
+        --zone=${ZONE} \
+        --image-family=${IMAGE_FAMILY:=pytorch-latest-gpu} \
+        --image-project=${IMAGE_PROJECT:=deeplearning-platform-release} \
         --maintenance-policy=TERMINATE \
-        --accelerator="type=nvidia-tesla-k80,count=1" \
-        --machine-type=$INSTANCE_TYPE \
-        --boot-disk-size=200GB \
-        --metadata="install-nvidia-driver=True" \
-        --metadata-from-file startup-script=vm_post_prov.sh \
+        --accelerator=${ACCELERATOR:="type=nvidia-tesla-k80,count=1"} \
+        --machine-type=${MACHINE_TYPE:=n1-highmem-4} \
+        --boot-disk-size=${BOOT_DISK_SIZE:=200GB} \
+        --metadata="${METADATA:=install-nvidia-driver=True}" \
+        --metadata-from-file startup-script=profiles/${PROFILE}.sh \
         --preemptible
-
-# --metadata-from-file startup-script=examples/scripts/install.sh \
 
 # gcloud compute instances list
 
@@ -42,4 +46,3 @@ echo "CONNECT: gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -L 8080
 echo
 echo "DELETE : gcloud compute instances delete $INSTANCE_NAME --zone=$ZONE --quiet"
 echo
-
