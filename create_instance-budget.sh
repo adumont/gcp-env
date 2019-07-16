@@ -20,6 +20,12 @@ gcloud compute instances create $INSTANCE_NAME \
 
 IP=$( gcloud compute instances list --filter="$INSTANCE_NAME" | grep -v PREEMPTIBLE | awk '{ print $6 }' )
 
+if ! which nc >/dev/null
+then
+   sudo apt update -qqq &>/dev/null
+   sudo apt install netcat -qqq -y &>/dev/null
+fi
+
 echo -n "Waiting for ssh port to be up"
 until nc -w 1 -z ${IP} 22
 do
