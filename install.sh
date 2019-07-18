@@ -13,4 +13,4 @@ fi
 git clone https://github.com/adumont/gcp-env.git
 
 # add the bashrc stuff to user's bashrc
-[ -e gcp-env/bashrc ] cat gcp-env/bashrc >> ~/.bashrc
+[ -e gcp-env/bashrc ] && cat gcp-env/bashrc >> ~/.bashrc
