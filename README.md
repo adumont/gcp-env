@@ -31,3 +31,7 @@ The script `./create_instance.sh` will do the following:
 ./create_instance.sh ageron
 ```
 
+
+### References
+
+- GCP Images: https://cloud.google.com/deep-learning-vm/docs/images
