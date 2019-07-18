@@ -1,5 +1,5 @@
 # gcp-env
-Some scripts and stuff I used from GCP Cloud Shell
+Some scripts and stuff I used from within [GCP Cloud Shell](https://console.cloud.google.com/cloudshell/editor?shellonly=true)
 
 Clone into your Google Cloud Shell home.
 
