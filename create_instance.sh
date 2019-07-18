@@ -39,10 +39,10 @@ echo
 
 echo "Opening tunnel for Jupyter Notebook. Use Web Preview to connect. "
 
-gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -N -L 8080:localhost:8080 &
+gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -N -L 8080:localhost:${LOCAL_PORT:=8080} &
 
 echo
-echo "CONNECT: gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -L 8080:localhost:8080"
+echo "CONNECT: gcloud compute ssh jupyter@$INSTANCE_NAME --zone=$ZONE -- -L 8080:localhost:${LOCAL_PORT:=8080}"
 echo
 echo "DELETE : gcloud compute instances delete $INSTANCE_NAME --zone=$ZONE --quiet"
 echo
