@@ -3,6 +3,12 @@ Some scripts and stuff I used from GCP Cloud Shell
 
 Clone into your Google Cloud Shell home.
 
+Install with:
+
+```
+curl https://raw.githubusercontent.com/adumont/gcp-env/master/install.sh | bash
+```
+
 ### Script
 
 The script `./create_instance.sh` will do the following:
