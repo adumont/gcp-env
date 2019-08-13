@@ -5,7 +5,8 @@ PROFILE=${1:-fastai}
 . profiles/${PROFILE}.conf
 
 INSTANCE_NAME=${INSTANCE_NAME:=my-instance}
-ZONE=${ZONE:=us-west1-b}
+#ZONE=${ZONE:=us-west1-b}
+ZONE=${ZONE:=europe-west1-b}
 
 gcloud compute instances create ${INSTANCE_NAME} \
         --verbosity=${VERBOSITY:=info} \
