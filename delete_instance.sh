@@ -10,4 +10,4 @@ ZONE=${ZONE:=europe-west1-b}
 
 gcloud compute instances delete ${INSTANCE_NAME} \
         --verbosity=${VERBOSITY:=info} \
-        --zone=${ZONE}
+        --zone=${ZONE} --quiet
