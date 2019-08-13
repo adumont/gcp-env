@@ -17,3 +17,6 @@ su jupyter -c "wget https://gist.githubusercontent.com/adumont/1380188/raw/.gitc
 
 # My notes & notebooks for ML & DL, by @adumont
 su jupyter -c "cd ; git clone https://github.com/adumont/ml-dl-notes.git"
+
+# Link to fastai notebooks in home dir
+su jupyter -c "cd ; ln -s tutorials/fastai/course-v3/nbs fastai"
