@@ -1,5 +1,11 @@
 # This will run as root
 
+# Install my .gitconfig
+su jupyter -c "wget https://gist.githubusercontent.com/adumont/1380188/raw/.gitconfig -O ~/.gitconfig"
+
+# My notes & notebooks for ML & DL, by @adumont
+su jupyter -c "cd ; git clone https://github.com/adumont/ml-dl-notes.git"
+
 # introduction-to-reinforcement-learning, webinar from O'Reilly
 su jupyter -c "cd ; git clone https://resources.oreilly.com/live-training/introduction-to-reinforcement-learning.git"
 
