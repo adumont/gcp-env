@@ -35,3 +35,4 @@ The script `./create_instance.sh` will do the following:
 ### References
 
 - GCP Images: https://cloud.google.com/deep-learning-vm/docs/images
+- GPUs con Compute Engine (info of what GPUs are available where): https://cloud.google.com/compute/docs/gpus/
